@@ -1,0 +1,99 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}
+    Create
+{% endblock title %}
+    
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4"><center>Add Pets and Owners</center></h1>
+      <p class="lead"><center>You can add new pets and owners to database</center></p>
+    </div>
+</div>
+
+<div class="container">
+  <form>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+      <label for="input-Owners">Existing Owners</label>
+      <select id="input-Owners" class="form-control">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+  </div>
+  </form>
+ 
+  <form method="POST">
+    {% csrf_token %}
+    <div class="alert alert-primary" role="alert">
+      <center>Owner Data</center>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Owner Name and Surname</label>
+        <input type="text" class="form-control" name="owner_name_surname" placeholder="John Wick">
+      </div>
+      <div class="form-group col-md-6">
+        <label>Age</label>
+        <input type="text" class="form-control" name="owner_age" placeholder="57">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Email</label>
+        <input type="email" class="form-control" name="owner_mail" placeholder="abcdef@example-mail.com">
+      </div>
+      <div class="form-group col-md-6">
+        <label>Phone</label>
+        <input type="text" class="form-control" name="owner_phone"placeholder="0123 456 78 90">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Address</label>
+      <input type="text" class="form-control" name="owner_adress" placeholder="Apartment, studio, or floor">
+    </div>
+
+    
+    <div class="alert alert-primary" role="alert">
+      <center>Pet Data</center>
+    </div>
+    
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Pet Name</label>
+        <input type="text" class="form-control" name="pet_name" placeholder="Daisy">
+      </div>
+      <div class="form-group col-md-6">
+        <label>Pet Age</label>
+        <input type="text" class="form-control" name="pet_age" placeholder="1">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Pet Familia</label>
+        <input type="text" class="form-control" name="pet_familia" placeholder="Dog">
+      </div>
+      <div class="form-group col-md-6">
+        <label>Pet Speices</label>
+        <input type="text" class="form-control" name="pet_species"placeholder="Beagle">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Additional Notes </label>
+      <input type="text" class="form-control" name="pet_description" placeholder="vaccinated etc.">
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>
+</div>
+
+
+
+{% endblock content %}
+
+

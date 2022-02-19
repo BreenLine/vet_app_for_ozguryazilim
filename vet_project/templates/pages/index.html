@@ -1,0 +1,72 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}
+    Pets and Owners
+{% endblock title %}
+
+{% block content %}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4"><center>Manage Pets and Owners</center></h1>
+            <p class="lead"><center>You can add, remove or update pets and owners database</center></p>
+            <div class="text-center">
+                <a class="btn btn-outline-success" href="{% url 'create' %}" role="button">Add New</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Owner of Pet</th>
+                <th scope="col">Pet Name</th>
+                <th scope="col">Pet Age</th>
+                <th scope="col">Pet Familia</th>
+                <th scope="col">Pet Species</th>
+                <th scope="col">Additional Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for pet in show_pet_data %}
+                    <tr>
+                        <td>{{pet.the_owner_of_pet}}</td>
+                        <td>{{pet.pet_name}}</td>
+                        <td>{{pet.pet_age}}</td>
+                        <td>{{pet.pet_familia}}</td>
+                        <td>{{pet.pet_species}}</td>
+                        <td>{{pet.pet_description}}</td>    
+                    </tr>   
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+    <div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Owner Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Mail</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Address</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for owner in show_owner_data %}
+                <tr>
+                    <td>{{owner.owner_name_surname}}</td>
+                    <td>{{owner.owner_age}}</td>
+                    <td>{{owner.owner_mail}}</td>
+                    <td>{{owner.owner_phone}}</td>
+                    <td>{{owner.owner_adress}}</td>    
+                </tr>   
+            {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    
+{% endblock content %}
+
+
