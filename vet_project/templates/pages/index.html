@@ -25,6 +25,8 @@
                 <th scope="col">Pet Familia</th>
                 <th scope="col">Pet Species</th>
                 <th scope="col">Additional Notes</th>
+                <th scope="col">Delete</th>
+                <th scope="col">Update</th>
               </tr>
             </thead>
             <tbody>
@@ -35,7 +37,9 @@
                         <td>{{pet.pet_age}}</td>
                         <td>{{pet.pet_familia}}</td>
                         <td>{{pet.pet_species}}</td>
-                        <td>{{pet.pet_description}}</td>    
+                        <td>{{pet.pet_description}}</td>
+                        <td><a class="btn btn-danger" href="{% url 'delete' pet.id %}">Delete</a></td> 
+                        <td><a class="btn btn-warning" href="{% url 'update' pet.id %}">Update</a></td>     
                     </tr>   
                 {% endfor %}
             </tbody>
@@ -51,6 +55,8 @@
             <th scope="col">Mail</th>
             <th scope="col">Phone</th>
             <th scope="col">Address</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Update</th>
           </tr>
         </thead>
         <tbody>
@@ -60,7 +66,9 @@
                     <td>{{owner.owner_age}}</td>
                     <td>{{owner.owner_mail}}</td>
                     <td>{{owner.owner_phone}}</td>
-                    <td>{{owner.owner_adress}}</td>    
+                    <td>{{owner.owner_adress}}</td>
+                    <td><a class="btn btn-danger" href="{% url 'delete' owner.id %}">Delete</a></td>
+                    <td><a class="btn btn-warning" href="{% url 'update' owner.id %}">Update</a></td>    
                 </tr>   
             {% endfor %}
         </tbody>

@@ -10,7 +10,7 @@ class Owners_Form(forms.ModelForm):
 class Pets_Form(forms.ModelForm):
     class Meta: 
         model = Pet_Data
-        the_owner_of_pet = Owners_Form
+        the_owner_of_pet = 1
         fields = ["the_owner_of_pet","pet_familia","pet_species","pet_name","pet_age","pet_description"]
         
 
