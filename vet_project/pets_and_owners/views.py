@@ -1,5 +1,4 @@
-from sre_parse import Verbose
-from tabnanny import verbose
+
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from .models import Owner_Data, Pet_Data
@@ -19,7 +18,7 @@ def test(request):
 def create(request):
     the_owners = Owner_Data.objects.all()
     the_pets = Pet_Data.objects.all()
-    print(request.pet_familia)
+    
     if request.method == "POST":
         form = Owners_Form(request.POST or None)
         if form.is_valid():
@@ -50,3 +49,11 @@ def update(request, Owner_Data_id):
         return render(request, "pages/update.html")
 
     return
+
+def search(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        owner_search = Owner_Data.objects.filter(owner_name_surname__contains=searched)
+        return render(request, "pages/search.html", {"searched": searched, "owner_search":owner_search})
+    else:
+        return render(request, "pages/search.html", {"searched": searched,"owner_search":owner_search})
