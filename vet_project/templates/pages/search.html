@@ -20,7 +20,7 @@
     You Searched For : {{searched}}
     <br/>
     {% for owner_name in owner_search %}
-        {{owner_name}} - {{owner_name.owner_phone}}<br/>
+        {{owner_name}} - {{owner_name.owner_phone}}- {{owner_name.owner_mail}} - {{owner_name.owner_adress}}<br/>
     {% endfor %}
 
 {% else %}
